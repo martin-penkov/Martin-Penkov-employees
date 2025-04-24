@@ -1,0 +1,19 @@
+<header>
+    <nav>
+        Upload CSV file!
+    </nav>
+
+    <div class="uploadSegment">
+        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+        <div class="file-upload">
+    
+        {{fileName || "No file uploaded yet."}}
+    
+            <button class="upload-btn" (click)="fileUpload.click()">
+                <img src="/assets/upload.png"/>
+            </button>
+        </div>
+    </div>
+
+    <div class="header-right"></div>
+</header>
