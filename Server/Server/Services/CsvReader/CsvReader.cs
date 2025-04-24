@@ -31,10 +31,12 @@ namespace Server.Services.CsvReader
             return employeeProjects;
         }
 
-        private DateTime? ParseNullableDate(string value)
+        private DateTime ParseNullableDate(string value)
         {
             if (string.Equals(value, "NULL", StringComparison.OrdinalIgnoreCase))
-                return null;
+            {
+                return DateTime.UtcNow;
+            }
 
             return DateTime.ParseExact(value, "yyyy-MM-dd", CultureInfo.InvariantCulture);
         }

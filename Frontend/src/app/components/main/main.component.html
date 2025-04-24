@@ -1,1 +1,20 @@
-<p>Main works!</p>
+<div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>First Employee ID</th>
+          <th>Second Employee ID</th>
+          <th>Project ID</th>
+          <th>Days Worked Together</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pair of _data()">
+          <td>{{ pair.firstEmpId}}</td>
+          <td>{{ pair.secondEmpId }}</td>
+          <td>{{ pair.projectId }}</td>
+          <td>{{ pair.daysWorkedTogether }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

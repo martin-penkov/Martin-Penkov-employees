@@ -1,6 +1,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { EmployeeDataService } from '../../services/employee-data.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   fileName = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private dataService: EmployeeDataService) {}
 
   onFileSelected(event: Event) {
       const input = event.target as HTMLInputElement;
@@ -29,14 +30,13 @@ export class HeaderComponent {
 
           formData.append('file', file);
 
-          this.http.post('https://localhost:7133/api/employees', formData).subscribe({
+          this.http.post('https://localhost:7133/api/employees/processCsvDataSingleOutput', formData).subscribe({
             next: (response) => {
               console.log('File uploaded successfully:', response);
-              // Optionally show success message or update UI
+              this.dataService.setData(response);
             },
             error: (err) => {
               console.error('Upload failed:', err);
-              // Optionally show error message to user
             }
           });
       }
