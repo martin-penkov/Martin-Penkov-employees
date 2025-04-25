@@ -9,7 +9,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let pair of _data()">
+        <tr *ngFor="let pair of _data()" [ngClass]="{'highlight': pair.shouldHighlight}">
           <td>{{ pair.firstEmpId}}</td>
           <td>{{ pair.secondEmpId }}</td>
           <td>{{ pair.projectId }}</td>

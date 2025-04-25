@@ -30,7 +30,7 @@ export class HeaderComponent {
 
           formData.append('file', file);
 
-          this.http.post('https://localhost:7133/api/employees/processCsvDataSingleOutput', formData).subscribe({
+          this.http.post('https://localhost:7133/api/employees/ProcessCsvDataAllEmployeePairs', formData).subscribe({
             next: (response) => {
               console.log('File uploaded successfully:', response);
               this.dataService.setData(response);

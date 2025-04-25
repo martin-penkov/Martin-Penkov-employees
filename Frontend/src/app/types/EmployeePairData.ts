@@ -3,4 +3,5 @@ export interface EmployeePairData {
     secondEmpId: number;
     projectId: number;
     daysWorkedTogether: number;
+    shouldHighlight: boolean | null;
 }
